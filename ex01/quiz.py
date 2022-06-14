@@ -23,4 +23,4 @@ else:
     if x == "おい" or "甥" or "甥っ子" or "おいっこ":
         print("正解")
     else:
-        print("不正解") 
+        print("不正解")
