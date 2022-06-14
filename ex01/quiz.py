@@ -1,5 +1,6 @@
 import random
-num = random.randint(0,3)
+from re import A
+num = random.randint(0,3)#azasu
 
 if num == 0:
     print("問題：サザエの旦那の名前は？")
