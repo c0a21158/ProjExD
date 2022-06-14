@@ -22,5 +22,5 @@ else:
     x = input("")
     if x == "おい" or "甥" or "甥っ子" or "おいっこ":
         print("正解")
-    else:
+    else:   
         print("不正解")
