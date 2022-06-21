@@ -12,6 +12,10 @@ def button_click(event):
         sum = eval(A)
         entry.delete(0,tk.END)
         entry.insert(tk.END,sum)
+
+
+    
+        
     else:
         entry.insert(tk.END,txt)
 
@@ -72,6 +76,36 @@ btn = tk.Button(root,
                 font=("Times New Roman",30)
                 )
 btn.grid(row = r,column= c+1)
+btn.bind("<1>",button_click)
+
+#*の追加
+btn = tk.Button(root,
+                text=f"*",
+                width=4,
+                height=2,
+                font=("Times New Roman",30)
+                )
+btn.grid(row = r+1,column= c)
+btn.bind("<1>",button_click)
+
+#/の追加
+btn = tk.Button(root,
+                text=f"/",
+                width=4,
+                height=2,
+                font=("Times New Roman",30)
+                )
+btn.grid(row = r+1,column= c+1)
+btn.bind("<1>",button_click)
+
+#**の追加
+btn = tk.Button(root,
+                text=f"**",
+                width=4,
+                height=2,
+                font=("Times New Roman",30)
+                )
+btn.grid(row = r+1,column= c-1)
 btn.bind("<1>",button_click)
 
 
