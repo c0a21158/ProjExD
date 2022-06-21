@@ -1,42 +1,26 @@
-from platform import java_ver
-from re import A
 import tkinter as tk
 import tkinter.messagebox as tkm
 
-
+#ボタンをクリックしたときの関数
 def button_click(event):
     txt = event.widget["text"]
-    #tkm.showinfo(txt,f"[{txt}]ボタンが押されました")
+
     if txt == "=":
         A = entry.get()
         sum = eval(A)
         entry.delete(0,tk.END)
         entry.insert(tk.END,sum)
-
-
-    
-        
     else:
         entry.insert(tk.END,txt)
-
-
-
-
-    
-
-
-
 
 if__name__="__main__"
 
 root = tk.Tk()
-#root.geometry("300x500")
 root.title("電卓")
-
 
 entry = tk.Entry(root,
                 justify = "right",
-                width = 10,
+                width = 15,
                 font = ("Times New Roman",40)
                 )
 entry.grid(row = 0,column=0,columnspan=3)
@@ -108,6 +92,13 @@ btn = tk.Button(root,
 btn.grid(row = r+1,column= c-1)
 btn.bind("<1>",button_click)
 
-
+btn = tk.Button(root,
+                text=f"-",
+                width=4,
+                height=2,
+                font=("Times New Roman",30)
+                )
+btn.grid(row = r+1,column= c+2)
+btn.bind("<1>",button_click)
 
 root.mainloop()
