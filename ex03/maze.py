@@ -1,5 +1,6 @@
 import tkinter as tk
 import maze_maker as mm
+import tkinter.messagebox as tkm
 
 
 def key_down(event):#keyが押されたとき
@@ -28,6 +29,7 @@ def main_proc():#こうかとんの移動方法の設定とマップの生成
             my, mx = my+delta[key][1] ,mx+delta[key][0]
 
         if key == "r":
+            tkm.showinfo("リセットされます。")
             Re()
         if key == "b":
             bg = "blue"
