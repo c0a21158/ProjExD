@@ -60,6 +60,11 @@ def main():
         yoko,tate = check_bound(bmimag_rect,screen_rect)
         vx *= yoko
         vy *= tate
+
+        #練習8
+        if kkimag_rect.colliderect(bmimag_rect): return
+        #if bmimag_rect.colliderect(kkimag_rect): return
+
         pg.display.update()
         clock.tick(1000)
 
