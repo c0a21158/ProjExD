@@ -35,11 +35,11 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         #練習4
-        key_states = pg.key.get_pressed()
-        if key_states[pg.K_UP]    :kkimag_rect.centery -= 1
-        if key_states[pg.K_DOWN]  :kkimag_rect.centery += 1
-        if key_states[pg.K_LEFT]  :kkimag_rect.centerx -= 1
-        if key_states[pg.K_RIGHT] :kkimag_rect.centerx += 1
+        key_states = pg.key.get_pressed() #こうかとんの移動について
+        if key_states[pg.K_UP]    :kkimag_rect.centery -= 1 #↑移動
+        if key_states[pg.K_DOWN]  :kkimag_rect.centery += 1 #↓移動
+        if key_states[pg.K_LEFT]  :kkimag_rect.centerx -= 1 #←移動
+        if key_states[pg.K_RIGHT] :kkimag_rect.centerx += 1 #→移動
 
         if check_bound(kkimag_rect,screen_rect) != (1,1): #領域外だったら
             if key_states[pg.K_UP]   :kkimag_rect.centery += 1
