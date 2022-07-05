@@ -36,16 +36,16 @@ def main():
             if event.type == pg.QUIT: return
         #練習4
         key_states = pg.key.get_pressed()
-        if key_states[pg.K_UP]    == True:kkimag_rect.centery -= 1
-        if key_states[pg.K_DOWN]  == True:kkimag_rect.centery += 1
-        if key_states[pg.K_LEFT]  == True:kkimag_rect.centerx -= 1
-        if key_states[pg.K_RIGHT] == True:kkimag_rect.centerx += 1
+        if key_states[pg.K_UP]    :kkimag_rect.centery -= 1
+        if key_states[pg.K_DOWN]  :kkimag_rect.centery += 1
+        if key_states[pg.K_LEFT]  :kkimag_rect.centerx -= 1
+        if key_states[pg.K_RIGHT] :kkimag_rect.centerx += 1
 
         if check_bound(kkimag_rect,screen_rect) != (1,1): #領域外だったら
-            if key_states[pg.K_UP]    == True:kkimag_rect.centery += 1
-            if key_states[pg.K_DOWN]  == True:kkimag_rect.centery -= 1
-            if key_states[pg.K_LEFT]  == True:kkimag_rect.centerx += 1
-            if key_states[pg.K_RIGHT] == True:kkimag_rect.centerx -= 1
+            if key_states[pg.K_UP]   :kkimag_rect.centery += 1
+            if key_states[pg.K_DOWN] :kkimag_rect.centery -= 1
+            if key_states[pg.K_LEFT] :kkimag_rect.centerx += 1
+            if key_states[pg.K_RIGHT]:kkimag_rect.centerx -= 1
         #練習6
         bmimag_rect.move_ip(vx,vy)
         #練習5
