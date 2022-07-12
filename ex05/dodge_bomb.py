@@ -24,7 +24,6 @@ class Bird:
 
     def blit(self, scr : Screen):
         scr.sfc.blit(self.sfc, self.rct)
-        #screen_sfc.blit(kkimg_sfc,kkimg_rct)
 
     def uppdate(self,scr:Screen):
         key_states = pg.key.get_pressed() # 辞書
@@ -69,7 +68,6 @@ class Bomb:
         self.blit(scr)
 
 
-
 def main():
     clock = pg.time.Clock()
 
@@ -96,7 +94,6 @@ def main():
         clock.tick(1000)
 
 
-
 def check_bound(rct, scr_rct):
     '''
     [1] rct: こうかとん or 爆弾のRect
@@ -106,7 +103,6 @@ def check_bound(rct, scr_rct):
     if rct.left < scr_rct.left or scr_rct.right  < rct.right : yoko = -1 # 領域外
     if rct.top  < scr_rct.top  or scr_rct.bottom < rct.bottom: tate = -1 # 領域外
     return yoko, tate
-
 
 
 if __name__ == "__main__":
