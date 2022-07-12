@@ -72,8 +72,8 @@ class Bomb:
 
 class Buki:#武器の表示
     def __init__(self,image,size,xy):
-        self.sfc = pg.image.load(image)
-        self.sfc = pg.transform.rotozoom(self.sfc, 0, size)
+        self.sfc = pg.image.load(image)#画像の読み込み
+        self.sfc = pg.transform.rotozoom(self.sfc, 0, size)#画像サイズ
         self.rct = self.sfc.get_rect()                       
         self.rct.center = xy
 
