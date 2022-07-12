@@ -72,15 +72,14 @@ class Bomb:
 
 class Buki:#武器の表示
     def __init__(self,image,size,xy):
-        self.sfc = pg.image.load(image)
-        self.sfc = pg.transform.rotozoom(self.sfc, 0, size)
-        self.rct = self.sfc.get_rect()                       
-        self.rct.center = xy
+        self.sfc = pg.image.load(image)#画像の読み込み
+        self.sfc = pg.transform.rotozoom(self.sfc, 0, size)#画像のサイズ
+        self.rct = self.sfc.get_rect()#Surface
 
-    def blit(self, scr : Screen):
+    def blit(self, scr : Screen):#貼り付け
         scr.sfc.blit(self.sfc, self.rct)
     
-    def uppdate(self,scr:Screen):
+    def uppdate(self,scr:Screen):#更新
         self.rct.move_ip()
         yoko, tate = check_bound(self.rct, scr.rct)
         self.rct *= yoko
@@ -92,7 +91,7 @@ def main():
     clock = pg.time.Clock()
 
     # スクリーンと背景画像
-    scr = Screen("逃げろ！こうかとん",(1600,900),"fig/pg_bg.jpg")
+    scr = Screen("がんばれ、こうかとん",(1600,900),"fig/pg_bg.jpg")
     # こうかとん
     kkt = Bird("fig/6.png",2.0,(900, 400))
     # 爆弾
@@ -126,6 +125,7 @@ def time_time():#時間を表示
     return print(f"タイム：{end - start}")
 
 if __name__ == "__main__":
+
     start = time.time()
     pg.init()
     main()
