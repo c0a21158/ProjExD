@@ -1,6 +1,8 @@
+from re import A
 import pygame as pg
 import sys
 import random
+import time
 
 
 class Screen:
@@ -47,6 +49,7 @@ class Bird:
                 self.rct.centerx -= 1
         self.blit(scr)
 
+
 class Bomb:
     def __init__(self,color,size,vxy,scr:Screen):
         self.sfc = pg.Surface((2*size, 2*size)) # Surface
@@ -67,6 +70,23 @@ class Bomb:
         self.vy *= tate
         self.blit(scr)
 
+class Buki:#武器の表示
+    def __init__(self,image,size,xy):
+        self.sfc = pg.image.load(image)
+        self.sfc = pg.transform.rotozoom(self.sfc, 0, size)
+        self.rct = self.sfc.get_rect()                       
+        self.rct.center = xy
+
+    def blit(self, scr : Screen):
+        scr.sfc.blit(self.sfc, self.rct)
+    
+    def uppdate(self,scr:Screen):
+        self.rct.move_ip()
+        yoko, tate = check_bound(self.rct, scr.rct)
+        self.rct *= yoko
+        self.rct *= tate
+        self.blit(scr)
+
 
 def main():
     clock = pg.time.Clock()
@@ -77,7 +97,8 @@ def main():
     kkt = Bird("fig/6.png",2.0,(900, 400))
     # 爆弾
     bkd = Bomb((255,0,0),10,(+1,+1),scr)
-
+    # 武器
+    bki = Buki("fig/pg_bg.png",20,20)
     while True:
         scr.blit()
         for event in pg.event.get():
@@ -92,21 +113,22 @@ def main():
 
         pg.display.update()
         clock.tick(1000)
-
+    
 
 def check_bound(rct, scr_rct):
-    '''
-    [1] rct: こうかとん or 爆弾のRect
-    [2] scr_rct: スクリーンのRect
-    '''
     yoko, tate = +1, +1 # 領域内
     if rct.left < scr_rct.left or scr_rct.right  < rct.right : yoko = -1 # 領域外
     if rct.top  < scr_rct.top  or scr_rct.bottom < rct.bottom: tate = -1 # 領域外
     return yoko, tate
 
+def time_time():#時間を表示
+    end = time.time()
+    return print(f"タイム：{end - start}")
 
 if __name__ == "__main__":
+    start = time.time()
     pg.init()
     main()
+    time_time()#最終タイムの表示
     pg.quit()
     sys.exit()
