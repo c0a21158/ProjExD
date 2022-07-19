@@ -35,7 +35,6 @@ def gameLoop():
     can.delete("all")
     drawBlock()
     win.after(15, gameLoop)
-
 gameLoop()
 
 
