@@ -16,4 +16,6 @@ def drawBlock() :
             can.create_rectangle(x, y, x+70, y+30, fill="white")
             block_count += 1
     if block_count == 0:
-        gameClear()  
+        gameClear() 
+
+        
