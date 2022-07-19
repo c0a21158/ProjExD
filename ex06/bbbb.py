@@ -11,11 +11,11 @@ win.resizable(False, False)
 can = tk.Canvas(bg="black", width=600, height=800)
 can.place(x=10, y=10)
 
-
 block = []
 for x in range(8) :
     for y in range(1) :
         block.append({"x":x*75+5, "y":y*40+10, "st":1})
+
 def drawBlock() :
     block_count = 0
     for i in range(len(block)):
@@ -36,7 +36,6 @@ def gameLoop():
     drawBlock()
     win.after(15, gameLoop)
 gameLoop()
-
 
 #ウインドウループ
 win.mainloop()
